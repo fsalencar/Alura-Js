@@ -1,9 +1,10 @@
 //Script js da página testedeifs.html
 
-
+var tipoFuncionario = prompt("Você é estagiário ou CLT?");
 var salarioMensal = prompt("Digite seu salário mensal: ");
 
-if (salarioMensal > 0 && salarioMensal < 1000) {
+if (tipoFuncionario = "CLT" || "ESTAGIÁRIO") {
+  if (salarioMensal > 0 && salarioMensal < 1000) {
   var aumentoSalarial = salarioMensal * 0.05;
   console.log("Seu salário atualizado é: " + aumentoSalarial);
   console.log("salarioMensal > 0 && salarioMensal < 1000");
@@ -15,4 +16,7 @@ if (salarioMensal > 0 && salarioMensal < 1000) {
   var aumentoSalarial = salarioMensal* 0.20;
   console.log("Seu salário atualizado é: " + aumentoSalarial);
   console.log("salario não se encaixa nas condições anteriores");
+}
+}else {
+  console.log("Deu ruim!");
 }
