@@ -18,6 +18,7 @@
 // var pacientes = [paciente1, paciente2];
 //var primeiro = pacientes[0];
 //var primeiro = pacientes[1];
+
 var trsPacientes = document.getElementsByClassName("paciente");
 
 var posicaoAtual = 0;
