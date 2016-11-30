@@ -1,26 +1,45 @@
-var trsPacientes = document.getElementsByClassName("paciente");
+//TESTE DA MASSA
 
-for(var posicaoAtual = 0; posicaoAtual <= trsPacientes.length - 1; posicaoAtual++){
 
-    var pacienteTr = trsPacientes[posicaoAtual];
-    
-    var tdNome = pacienteTr.getElementsByClassName("info-nome")[0]; 
-    var tdPeso = pacienteTr.getElementsByClassName("info-peso")[0]; 
-    var tdAltura = pacienteTr.getElementsByClassName("info-altura")[0];
+//calcula-imc.js
 
-    var paciente = { nome : tdNome.textContent, peso : tdPeso.textContent, altura : tdAltura.textContent};
+function calculaImcs(){
+  var trsPacientes = document.getElementsByClassName("paciente");
 
-    if(paciente.altura != 0){
-        var imc = paciente.peso / (paciente.altura * paciente.altura);
+  precorreArray(trsPacientes, function (pacienteTr){
 
-        var tdImc = pacienteTr.getElementsByClassName("info-imc")[0]; 
-        tdImc.textContent = imc;
+      var tdNome = pacienteTr.getElementsByClassName("info-nome")[0];
+      var tdPeso = pacienteTr.getElementsByClassName("info-peso")[0];
+      var tdAltura = pacienteTr.getElementsByClassName("info-altura")[0];
 
-        console.log(imc); 
+      var pacienteAtual = {
+                          nome : tdNome.textContent,
+                          peso : tdPeso.textContent,
+                          altura : tdAltura.textContent,
+                          pegaImc: function() {
 
-    }else{
+              if(this.altura != 0){
+                  var imc = this.peso / (this.altura * this.altura);
+                  return imc;
+              } else{
 
-        console("Não posso dividir por zero!");
-    }
+                  console("Não posso dividir por zero!");
+              }
+          }
+      };
 
-}
+      var imc = pacienteAtual.pegaImc();
+
+      var tdImc = pacienteTr.getElementsByClassName("info-imc")[0];
+      tdImc.textContent = imc;
+
+      console.log(imc);
+  }); }
+
+var botao = document.getElementById("calcula-imcs");
+
+botao.addEventListener("click",calculaImcs);
+
+//botao.onclick = calculaImcs;
+
+//muito cuidado pra não esquecer de fechar aqui a chamada da função
