@@ -1,3 +1,7 @@
+__MACOSX/projeto
+
+.DS_Store
+
 # Logs
 logs
 *.log
