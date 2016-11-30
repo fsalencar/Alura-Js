@@ -1,9 +1,6 @@
 //TESTE DA MASSA
-
-
-//calcula-imc.js
-
-function calculaImcs(){
+var botao = document.getElementById("calcula-imcs");
+botao.addEventListener("click",function(){
   var trsPacientes = document.getElementsByClassName("paciente");
 
   precorreArray(trsPacientes, function (pacienteTr){
@@ -34,11 +31,16 @@ function calculaImcs(){
       tdImc.textContent = imc;
 
       console.log(imc);
-  }); }
+  });
+});
 
-var botao = document.getElementById("calcula-imcs");
+//calcula-imc.js
 
-botao.addEventListener("click",calculaImcs);
+
+
+
+
+
 
 //botao.onclick = calculaImcs;
 
